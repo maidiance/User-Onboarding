@@ -8,14 +8,14 @@ import schema from './validation/formSchema';
 import * as yup from 'yup';
 
 const initialFormValues = {
-  name: '',
+  first_name: '',
   email: '',
   password: '',
   tos: false,
 }
 
 const initialFormErrors = {
-  name: '',
+  first_name: '',
   email: '',
   password: '',
   tos: '',
@@ -72,7 +72,7 @@ function App() {
 
   const formSubmit = () => {
     const newUser = {
-      name: formValues.name.trim(),
+      first_name: formValues.name.trim(),
       email: formValues.email.trim(),
       password: formValues.password.trim(),
       tos: tos => !!formValues[tos],
