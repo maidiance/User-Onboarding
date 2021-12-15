@@ -33,41 +33,41 @@ export default function Form(props) {
                     <div>{errors.password}</div>
                     <div>{errors.tos}</div>
                 </div>
+            </div>
 
-                <div className='form-group inputs'>
-                    <label>Name
-                        <input
-                            value={values.first_name}
-                            onChange={onChange}
-                            name='name'
-                            type='text'
-                        />
-                    </label>
-                    <label>Email
-                        <input
-                            value={values.email}
-                            onChange={onChange}
-                            name='email'
-                            type='email'
-                        />
-                    </label>
-                    <label>Password
-                        <input
-                            value={values.password}
-                            onChange={onChange}
-                            name='password'
-                            type='password'
-                        />
-                    </label>
-                    <label>Terms of Service
-                        <input
-                            checked={values.tos}
-                            onChange={onChange}
-                            name='tos'
-                            type='checkbox'
-                        />
-                    </label>
-                </div>
+            <div className='form-group inputs'>
+                <label>Name
+                    <input
+                        value={values.first_name}
+                        onChange={onChange}
+                        name='first_name'
+                        type='text'
+                    />
+                </label>
+                <label>Email
+                    <input
+                        value={values.email}
+                        onChange={onChange}
+                        name='email'
+                        type='email'
+                    />
+                </label>
+                <label>Password
+                    <input
+                        value={values.password}
+                        onChange={onChange}
+                        name='password'
+                        type='password'
+                    />
+                </label>
+                <label>Terms of Service
+                    <input
+                        checked={values.tos}
+                        onChange={onChange}
+                        name='tos'
+                        type='checkbox'
+                    />
+                </label>
             </div>
         </form>
     )

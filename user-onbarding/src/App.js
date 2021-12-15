@@ -34,7 +34,7 @@ function App() {
     // axios get call
     axios.get('https://reqres.in/api/users')
       .then(resp => {
-        console.log('response', resp.data.data);
+        // console.log('response', resp.data.data);
         setUsers(resp.data.data);
       })
       .catch(err => {
@@ -46,6 +46,7 @@ function App() {
     // axios post call
     axios.post('https://reqres.in/api/users', newUser)
       .then(resp => {
+        // console.log(resp.data);
         setUsers([ resp.data, ...users])
       })
       .catch(err => {
@@ -75,7 +76,7 @@ function App() {
       first_name: formValues.name.trim(),
       email: formValues.email.trim(),
       password: formValues.password.trim(),
-      tos: tos => !!formValues[tos],
+      tos: ['tos'].filter(tos => !!formValues[tos]),
     }
     postNewUser(newUser);
   }
