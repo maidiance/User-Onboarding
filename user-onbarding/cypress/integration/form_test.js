@@ -51,7 +51,7 @@ describe('User App', () => {
             tosInput().check();
             tosInput().should('be.checked');
             // reset back to baseline
-            tosInput().check();
+            tosInput().uncheck();
             tosInput().should('not.be.checked');
         })
     })
