@@ -18,7 +18,7 @@ describe('User App', () => {
         submitButton().should('exist');
     })
 
-    describe('Visit the site with disabled submit button', () => {
+    describe('Visit the site; check for disabled submit button', () => {
         it('can navigate to the site', () => {
             cy.url().should('include', 'localhost');
         })
@@ -28,5 +28,21 @@ describe('User App', () => {
         })
     })
 
+    describe('Check text inputs (Name, Email, Password)', () => {
+        it('can type in the inputs', () => {
+            nameInput()
+                .should('have.value', '')
+                .type('test')
+                .should('have.value', 'test');
+            emailInput()
+                .should('have.value', '')
+                .type('test@email.com')
+                .should('have.value', 'test@email.com');
+            passwordInput()
+                .should('have.value', '')
+                .type('testpassword')
+                .should('have.value', 'testpassword');
+        })
+    })
 })
 
