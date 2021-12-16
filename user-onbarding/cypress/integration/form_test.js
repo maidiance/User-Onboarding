@@ -55,5 +55,18 @@ describe('User App', () => {
             tosInput().should('not.be.checked');
         })
     })
+
+    describe('Check if a user can submit form data', () => {
+        it('can submit a new user', () => {
+            nameInput().type('test');
+            emailInput().type('test@email.com');
+            passwordInput().type('testpassword');
+            tosInput().check();
+            submitButton().click();
+            cy.contains('test@email.com').should('exist');
+            // reset
+            // do we have functionality to remove a user?
+        })
+    })
 })
 
