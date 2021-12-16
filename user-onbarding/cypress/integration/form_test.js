@@ -18,13 +18,14 @@ describe('User App', () => {
         submitButton().should('exist');
     })
 
-    describe('Filling out inputs and submitting', () => {
+    describe('Visit the site with disabled submit button', () => {
         it('can navigate to the site', () => {
             cy.url().should('include', 'localhost');
         })
 
-        // it('submit button starts out disabled', () => {
-        // })
+        it('submit button starts out disabled', () => {
+            submitButton.apply().should('be.disabled');
+        })
     })
 
 })
