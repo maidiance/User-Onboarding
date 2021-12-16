@@ -14,6 +14,8 @@ describe('User App', () => {
         emailInput().should('exist');
         passwordInput().should('exist');
         termsOfServiceInput().should('exist');
+        //submit button doesn't have an id so we use this
+        cy.contains('Submit').should('exist'); 
     })
 })
 
