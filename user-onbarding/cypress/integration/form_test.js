@@ -97,6 +97,18 @@ describe('User App', () => {
             tosInput().should('not.be.checked');
         })
 
+        it('can not submit form if password is left empty', () => {
+            nameInput().type('test');
+            emailInput().type('test@email.com');
+            tosInput().check();
+            submitButton().should('be.disabled');
+            //reset
+            nameInput().clear();
+            emailInput().clear();
+            tosInput().uncheck();
+            tosInput().should('not.be.checked');
+        })
+
         it('can not submit form if tos checkbox is unchecked', () => {
             nameInput().type('test');
             emailInput().type('test@email.com');
