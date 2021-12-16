@@ -62,11 +62,52 @@ describe('User App', () => {
             emailInput().type('test@email.com');
             passwordInput().type('testpassword');
             tosInput().check();
+            submitButton().should('not.be.disabled');
             submitButton().click();
             cy.contains('test@email.com').should('exist');
             // reset
-            // do we have functionality to remove a user?
+            tosInput().uncheck();
+            tosInput().should('not.be.checked');
+            // we would remove the user here!
         })
+    })
+
+    describe('Check form validation if an input is left empty', () => {
+        it('can not submit form if name is left empty', () => {
+            emailInput().type('test@email.com');
+            passwordInput().type('testpassword');
+            tosInput().check();
+            submitButton().should('be.disabled');
+            // reset
+            emailInput().clear();
+            passwordInput().clear();
+            tosInput().uncheck();
+            tosInput().should('not.be.checked');
+        })
+
+        it('can not submit form if email is left empty', () => {
+            nameInput().type('test');
+            passwordInput().type('testpassword');
+            tosInput().check();
+            submitButton().should('be.disabled');
+            // reset
+            nameInput().clear();
+            passwordInput().clear();
+            tosInput().uncheck();
+            tosInput().should('not.be.checked');
+        })
+
+        it('can not submit form if tos checkbox is unchecked', () => {
+            nameInput().type('test');
+            emailInput().type('test@email.com');
+            passwordInput().type('testpassword');
+            submitButton().should('be.disabled');
+            // reset
+            nameInput().clear();
+            emailInput().clear();
+            passwordInput().clear();
+        })
+        
     })
 })
 
